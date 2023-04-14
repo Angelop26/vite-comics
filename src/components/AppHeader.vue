@@ -68,13 +68,11 @@
                 <img src="../assets/img/dc-logo.png" alt="">
             </a>
         </div>
-        <nav>
-            <ul>
-                <li v-for="elem in navElem" >
-                    <a :href="elem.link" :class="elem.current ? 'active' : ''"> {{ elem.text }} </a>
-                </li>
-            </ul>
-        </nav>
+        <ul>
+            <li v-for="(elem, index) in navElem" :key="index" :class="elem.current ? 'active' : ''">
+                <a :href="elem.link"> {{ elem.text }} </a>
+            </li>
+        </ul>   
     </div>
    </header> 
 </template>
@@ -82,9 +80,8 @@
 <style lang="scss" scoped>
 @use '../style/partials/mixins' as *;
 .container{
-    width: 60%;
-    margin: 0 auto;
-    @include flex(row,space-between,center);
+    @include container(80%);
+    @include flex(row,space-between,stretch);
 
     ul{
         list-style-type: none;
@@ -92,15 +89,20 @@
 
         li{
             margin: 0 .5rem;
-
+            height: 100%;
+            display: flex;
+            
             a{
                 text-decoration: none;
-                color: black;
-    
-                &.active,
-                &:hover{
-                    color: #0282F9;
-                }
+                color: inherit;
+                align-self: center;
+                
+            }
+
+            &.active,
+            &:hover{
+                color: #0282F9;
+                border-bottom: 5px solid #0282F9;
             }
         }
     }

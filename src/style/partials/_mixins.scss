@@ -4,3 +4,8 @@
     justify-content: $justify-content;
     align-items: $align-items;
 }
+
+@mixin container($width){
+    width: $width;
+    margin: 0 auto;
+}
