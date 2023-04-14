@@ -9,7 +9,6 @@ import AppFooter from './components/AppFooter.vue';
             AppMain,
             AppFooter
         },
-
     }
 </script>
 

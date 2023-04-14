@@ -124,6 +124,7 @@ export default{
                 <div class="row">
                     <ListCard v-for="(serie, index) in series" :key="index" :thumb="serie.thumb" :series="serie.series"/>
                 </div>
+                <a href="#">Load More</a>
             </div>
         </section>
         <section class="bottomBanner">
@@ -141,7 +142,56 @@ export default{
             </div>
         </section>
         <section class="bottom">
-            <h2>bottom</h2>
+            <div class="bottom-container">
+                <div class="row">
+                    <div class="col">
+                        <h3>DC COMICS</h3>
+                        <ul>
+                            <li>Characters</li>
+                            <li>Comics</li>
+                            <li>Movies</li>
+                            <li>TV</li>
+                            <li>Games</li>
+                            <li>Videos</li>
+                            <li>News</li>
+                        </ul>
+                        <h3>SHOP</h3>
+                        <ul>
+                            <li>Shop DC</li>
+                            <li>Shop DC Collectibles</li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <h3>DC</h3>
+                        <ul>
+                            <li>Terms of Use</li>
+                            <li>Privacy policy</li>
+                            <li>Ad Choice</li>
+                            <li>lorem</li>
+                            <li>lorem</li>
+                            <li>lorem</li>
+                            <li>lorem</li>
+                            <li>lorem</li>
+                            <li>lorem</li>
+                            <li>lorem</li>
+                            <li>lorem</li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <h3>SITES</h3>
+                        <ul>
+                            <li>lorem</li>
+                            <li>lorem</li>
+                            <li>lorem</li>
+                            <li>lorem</li>
+                            <li>lorem</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="logo-bottom">
+                    <img src="../assets/img/dc-logo-bg.png" alt="">
+                </div>
+            </div>
         </section>
     </main>
 </template>
@@ -167,6 +217,7 @@ export default{
 
 .main{
     background-color: #1c1c1c;
+    padding-bottom: 2rem;
 
     &-title{
         background-color: #0282F9;
@@ -185,23 +236,68 @@ export default{
             @include flex(row,space-around,center); 
             flex-wrap: wrap;  
         }
+
+        a{
+            color: white;
+            background-color: #0282F9;
+            padding: 10px 20px;
+            position: relative;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
     }
 }
 .bottomBanner{
     background-color: #0282F9;
     ul{
         @include flex(row,space-around,center);
+        
+        li{
+            @include flex(row,flex-start,center);
+            color: white;
+        }
     }
 
-    li{
-        @include flex(row,flex-start,center);
-        color: white;
-    }
     .img-container{
         margin-right: 1rem;
         img{
             height: 50px;
             max-width: 50px;
+        }
+    }
+}
+
+.bottom{
+    width: 100%;
+    background-image: url(../assets/img/footer-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    .bottom-container{
+        @include flex(row,space-between,center);
+        @include container(80%)
+    }
+    .row{
+        @include flex(row,flex-start,flex-start);
+        width: 40%;
+        h3{
+            color: white;
+        }
+        ul{
+            margin-right: 2rem;
+            margin-bottom: .4rem;
+            li{
+                color: #889595;
+            }
+        }
+    }
+    .logo-bottom{
+        height: 400px;
+        width: 40%;
+        img{
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
         }
     }
 }
